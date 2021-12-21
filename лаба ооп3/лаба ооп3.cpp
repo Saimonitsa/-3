@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 #include <Windows.h>
 #include <conio.h>
-#include <string>
+
 using namespace std;
 
 class Shape {	
@@ -223,7 +223,7 @@ public:
 	}
 
 	void Rand(int l) {
-		int x = 1 + rand() % 4;
+		int x = 1 + rand() % 2;
 		switch (x) {
 			case 1: {
 				int p1, p2, p3;
@@ -361,7 +361,7 @@ int main() {
 				break;
 			}
 			case 6: {
-				storage.Rand(l);
+				storage.random();
 				break;
 			}
 			case 7: {
