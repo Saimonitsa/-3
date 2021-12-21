@@ -11,8 +11,8 @@ public:
 		color = 0;
     }
 	virtual void show_parametri() = 0;
-	virtual string formula() = 0;
-	virtual int sum_angle() = 0;
+	virtual void formula() = 0;
+	virtual void sum_angle() = 0;
 	~Shape() {
 	}
 };
@@ -53,11 +53,12 @@ public:
 	    cout << " Углов " << 4 << endl;
 	}
 
-	virtual string formula() {
-		return "a * h";
+	virtual void formula() {
+		cout << " a * h " << endl;
 	}
-	virtual int sum_angle() {
-		return 360;
+	virtual void sum_angle() {
+		cout << " 360 " << endl;
+
 	}
 	void Color() {
 		color = 13;
@@ -104,11 +105,13 @@ public:
 		cout << " Это треугольник " << endl;
 		cout << " Углов " << 3 << endl;
 	}
-	virtual string formula() {
-		return "a * h / 2";
+	virtual void formula() {
+		cout << " S = a * h * 0,5 " << 4 << endl;
+
 	}
-	virtual int sum_angle() {
-		return 180;
+	virtual void sum_angle() {
+		cout << " 180 " << endl;
+
 	}
 	void Color() {
 		color = 15;
