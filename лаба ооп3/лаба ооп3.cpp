@@ -50,14 +50,14 @@ public:
 
 	virtual void show_parametri() {
 		cout << " Это квадрат " << endl;
-	    cout << " Углов " << 4 << endl;
+	    cout << " Углов - " << 4 << endl;
 	}
 
 	virtual void formula() {
-		cout << " a * h " << endl;
+		cout << " S =  a * h " << endl;
 	}
 	virtual void sum_angle() {
-		cout << " 360 " << endl;
+		cout << " Сумма углов 360 " << endl;
 
 	}
 	void Color() {
@@ -103,14 +103,14 @@ public:
 
 	virtual void show_parametri() {
 		cout << " Это треугольник " << endl;
-		cout << " Углов " << 3 << endl;
+		cout << " Углов - " << 3 << endl;
 	}
 	virtual void formula() {
-		cout << " S = a * h * 0,5 " << 4 << endl;
+		cout << " S = a * h * 0,5 " << endl;
 
 	}
 	virtual void sum_angle() {
-		cout << " 180 " << endl;
+		cout << " Сумма углов 180 " << endl;
 
 	}
 	void Color() {
@@ -218,7 +218,7 @@ public:
 	void Cin(int l) {
 
 		int x;
-		cout << "1 - Square" << endl << "2 - Triangle" << endl;
+		cout << "1 - Triangle" << endl << "2 - Square" << endl;
 		cin >> x;
 		switch (x) {
 			case 1: {
