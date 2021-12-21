@@ -3,6 +3,7 @@
 #include <string>
 using namespace std;
 
+
 class Shape {
 public:
     Shape() {
@@ -134,6 +135,31 @@ public:
 			GetObject(i).formula();
 
 			GetObject(i).sum_angle();
+
+		}
+
+	}
+	void print(int l) {
+
+		if (l >= 0) {
+
+			for (int i = 0; i < l; i++) {
+
+				GetObject(i).show_parametri();
+
+				GetObject(i).formula();
+
+				GetObject(i).sum_angle();
+
+			}
+
+
+			GetObject(l).show_parametri();
+
+			GetObject(l).formula();
+
+			GetObject(l).sum_angle();
+
 
 		}
 
