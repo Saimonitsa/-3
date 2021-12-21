@@ -3,7 +3,6 @@
 #include <string>
 using namespace std;
 
-
 class Shape {
 public:
     Shape() {
@@ -107,55 +106,39 @@ private:
 	int max_a;
 
 	void checkSize() {
-
 		if (a >= max_a)
-
 			increase();
-
 	}
 
 	void increase() {
-
 		Shape** temp = new Shape * [max_a + 10];
-
 		for (int i = 0; i < max_a; i++) {
-
 			temp[i] = objects[i];
-
 		}
-
 		delete objects;
-
 		max_a += 10;
-
 		objects = new Shape * [max_a];
-
 		for (int i = 0; i < max_a; i++) {
-
 			objects[i] = temp[i];
-
 		}
-
 	}
+
 public:
 	MyStorage() {
+		a = 0;
+		max_a = 0;
+		objects = new Shape * [a];
+	}
+
+	MyStorage(int max_a) {
+		a = 0;
+		this->max_a = max_a;
+		objects = new Shape * [a];
 	}
 
 	void SetObject(int index, Shape* object) {
 		if(index < max_a)
 		objects[index] = object;
-	}
-
-	void outpMax_size() {
-		cout << "максимальный размер:" << max_a << endl;
-	}
-
-	void move(int m) {
-		a++;
-		checkSize();
-		for (int i = a - 1; i >= m; i--) {
-			objects[i] = objects[i - 1];
-		}
 	}
 
 	Shape& GetObject(int index) {
@@ -166,56 +149,50 @@ public:
 		return a;
 	}
 
-	void print() {
-
-		for (int i = 0; i < a; i++) {
-
-			GetObject(i).show_parametri();
-
-			GetObject(i).formula();
-
-			GetObject(i).sum_angle();
-
-		}
-
+	void outpMax_size() {
+		cout << "максимальный размер:" << max_a << endl;
 	}
+
+	void move(int l) {
+		a++;
+		checkSize();
+		for (int i = a - 1; i >= l; i--) {
+			objects[i] = objects[i - 1];
+		}
+	}
+
+	void print() {
+		for (int i = 0; i < a; i++) {
+			GetObject(i).show_parametri();
+			GetObject(i).formula();
+			GetObject(i).sum_angle();
+		}
+	}
+
 	void print(int l) {
-
 		if (l >= 0) {
-
 			for (int i = 0; i < l; i++) {
-
 				GetObject(i).show_parametri();
-
 				GetObject(i).formula();
-
 				GetObject(i).sum_angle();
-
 			}
 
-
 			GetObject(l).show_parametri();
-
 			GetObject(l).formula();
-
 			GetObject(l).sum_angle();
 
 			for (int i = l + 1; i < a; i++) {
-
 				GetObject(i).show_parametri();
-
 				GetObject(i).formula();
-
 				GetObject(i).sum_angle();
-
 			}
 		}
-
 	}
+
 	void Cin(int l) {
 
 		int x;
-		cout << "1 - Shape" << endl << "2 - Square" << endl << "3 - Triangle" << endl << "4 - Square" << endl;
+		cout << "1 - Square" << endl << "2 - Triangle" << endl;
 		cin >> x;
 		switch (x) {
 			case 1: {
@@ -225,17 +202,15 @@ public:
 				t->formula();
 				t->sum_angle();
 				SetObject(l, t);
-
 				break;
 			}
-			case 2: {
 
+			case 2: {
 				Square* s = new Square;
 				s->show_parametri();
 				s->formula();
 				s->sum_angle();
 				SetObject(l, s);
-
 				break;
 			}
 		}
@@ -249,38 +224,25 @@ public:
 			case 1: {
 
 				int p1, p2;
-
-				p1 = rand() % 10;
-				p2 = rand() % 10;
-
+				p1 = 1 + rand() % 2;
+				p2 = 1 + rand() % 2;
 				Triangle* t = new Triangle(p1, p2);
-
 				SetObject(l, t);
-
 				break;
-
 			}
 
 			case 2: {
-
 				int p1, p2;
-
-				p1 = rand() % 10;
-				p2 = rand() % 10;
-
+				p1 = 1 + rand() % 2;
+				p2 = 1 + rand() % 2;
 				Square* s = new Square(p1, p2);
-
 				SetObject(l, s);
-
 				break;
-
 			}
-
 		}
-
 	}
-	void remove(int i) {
 
+	void remove(int i) {
 		if (a > 0) {
 			a--;
 			for (i; i < a; i++) {
