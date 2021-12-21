@@ -6,9 +6,7 @@ using namespace std;
 
 class Shape {	
 public:
-    int color;
     Shape() {
-		color = 0;
     }
 	virtual void show_parametri() = 0;
 	virtual void formula() = 0;
@@ -19,32 +17,26 @@ public:
 
 class Square : public Shape {
 private:
-	int p1, p2, p3, p4;
+	int p1, p2, p3;
 public: 
 	Square() {
-		color = 0;
 		p1 = 0;
 		p2 = 0;
 		p3 = 0;
-		p4 = 0;
 		cout << "Square()" << endl;
 	}
 
-	Square(int x, int y, int z, int t) {
-		this->color = color;
+	Square(int x, int y, int z) {
 		this->p1 = x;
 		this->p2 = y;
 		this->p3 = z;
-		this->p4 = t;
-		cout << "Square(int x, int y, int z, int t)" << endl;
+		cout << "Square(int x, int y, int z)" << endl;
 	}
 
 	Square(const Square& p) {
-		color = p.color;
 		p1 = p.p1;
 		p2 = p.p2;
 		p3 = p.p3;
-		p4 = p.p4;
 		cout << "Square(const Square& p)" << endl;
 	}
 
@@ -60,9 +52,6 @@ public:
 		cout << " Сумма углов 360 " << endl;
 
 	}
-	void Color() {
-		color = 13;
-	}
 
 	~Square() {
 		cout << " Квадрат удален " << endl;
@@ -72,32 +61,26 @@ public:
 
 class Triangle : public Shape {
 private:
-	int p1, p2, p3, p4;
+	int p1, p2, p3;
 public:
 	Triangle() {
-		color = 0;
 		p1 = 0;
 		p2 = 0;
 		p3 = 0;
-		p4 = 0;
 		cout << "Triangle()" << endl;
 	}
 
-	Triangle(int x, int y, int z, int t) {
-		this->color = color;
+	Triangle(int x, int y, int z) {
 		this->p1 = x;
 		this->p2 = y;
 		this->p3 = z;
-		this->p4 = t;
-		cout << "Triangle(int x, int y, int z, int t)" << endl;
+		cout << "Triangle(int x, int y, int z)" << endl;
 	}
 
 	Triangle(const Triangle& p) {
-		color = p.color;
 		p1 = p.p1;
 		p2 = p.p2;
 		p3 = p.p3;
-		p4 = p.p4;
 		cout << "Triangle(const Triangle& p)" << endl;
 	}
 
@@ -112,9 +95,6 @@ public:
 	virtual void sum_angle() {
 		cout << " Сумма углов 180 " << endl;
 
-	}
-	void Color() {
-		color = 15;
 	}
 	~Triangle() {
 		cout << " Треугольник удален " << endl;
@@ -224,7 +204,6 @@ public:
 		switch (x) {
 			case 1: {
 				Triangle* t = new Triangle;
-				t->Color();
 				t->show_parametri();
 				t->formula();
 				t->sum_angle();
@@ -234,7 +213,6 @@ public:
 
 			case 2: {
 				Square* s = new Square;
-				s->Color();
 				s->show_parametri();
 				s->formula();
 				s->sum_angle();
@@ -248,23 +226,21 @@ public:
 		int x = 1 + rand() % 4;
 		switch (x) {
 			case 1: {
-				int p1, p2, p3, p4;
+				int p1, p2, p3;
 				p1 = 1 + rand() % 2;
 				p2 = 1 + rand() % 2;
 				p3 = 1 + rand() % 2;
-				p4 = 1 + rand() % 2;
-				Triangle* t = new Triangle(p1, p2, p3, p4);
+				Triangle* t = new Triangle(p1, p2, p3);
 				SetObject(l, t);
 				break;
 			}
 
 			case 2: {
-				int p1, p2, p3, p4;
+				int p1, p2, p3;
 				p1 = 1 + rand() % 2;
 				p2 = 1 + rand() % 2;
 				p3 = 1 + rand() % 2;
-				p4 = 1 + rand() % 2;
-				Square* s = new Square(p1, p2, p3, p4);
+				Square* s = new Square(p1, p2, p3);
 				SetObject(l, s);
 				break;
 			}
