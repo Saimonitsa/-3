@@ -310,5 +310,17 @@ public:
 int main() {
 
 	setlocale(LC_ALL, "Rus");
-			
+	srand(time(0));
+	MyStorage storage(0);
+	bool flag = true;
+	int l = -1;
+	while (flag == true) {
+		system("cls");
+		cout << "Размер хранилища: " << storage.getCount() << endl;
+			cout << "1 - добавить элемент" << endl << "2 - подобрать случайно" << endl << "3 - выход" << endl;
+			l = -1;
+
+	}
+
+	
 }
