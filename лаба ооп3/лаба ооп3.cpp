@@ -317,9 +317,14 @@ int main() {
 	while (flag == true) {
 		system("cls");
 		cout << "Размер хранилища: " << storage.getCount() << endl;
+		if (storage.getCount() == 0) {
 			cout << "1 - добавить элемент" << endl << "2 - подобрать случайно" << endl << "3 - выход" << endl;
 			l = -1;
+		}
 
+		else {
+
+		}
 	}
 
 	
