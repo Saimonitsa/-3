@@ -361,7 +361,7 @@ int main() {
 				break;
 			}
 			case 6: {
-				storage.random();
+				storage.Rand(l);
 				break;
 			}
 			case 7: {
