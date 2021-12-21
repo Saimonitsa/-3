@@ -15,15 +15,36 @@ public:
 	}
 };
 class Square : public Shape {
+private:
+	int p1, p2;
 public: 
 
 	Square() {
+
+		p1 = 0;
+		p2 = 0;
+		cout << "Square()" << endl;
+	}
+
+	Square(int x, int y) {
+
+		this->p1 = x;
+		this->p2 = y;
+		cout << "Square(int x, int y)" << endl;
+	}
+
+	Square(const Square& p) {
+
+		p1 = p.p1;
+		p2 = p.p2;
+		cout << "Square(const Square& p)" << endl;
 	}
 
 	virtual void show_parametri() {
 		cout << " Это квадрат " << endl;
 	    cout << " Углов " << 4 << endl;
 	}
+
 	virtual string formula() {
 		return "a * h";
 	}
@@ -38,10 +59,29 @@ public:
 
 
 class Triangle : public Shape {
-
+private:
+	int p1, p2;
 public:
 
 	Triangle() {
+
+		p1 = 0;
+		p2 = 0;
+		cout << "Triangle()" << endl;
+	}
+
+	Triangle(int x, int y) {
+
+		this->p1 = x;
+		this->p2 = y;
+		cout << "Triangle(int x, int y)" << endl;
+	}
+
+	Triangle(const Triangle& p) {
+
+		p1 = p.p1;
+		p2 = p.p2;
+		cout << "Triangle(const Triangle& p)" << endl;
 	}
 
 	virtual void show_parametri() {
@@ -200,6 +240,48 @@ public:
 			}
 		}
 	}
+
+	void Rand(int l) {
+
+		int x = 1 + rand() % 2;
+		switch (x) {
+
+			case 1: {
+
+				int p1, p2;
+
+				p1 = rand() % 10;
+				p2 = rand() % 10;
+
+				Triangle* t = new Triangle(p1, p2);
+
+				SetObject(l, t);
+
+				break;
+
+			}
+
+			case 2: {
+
+				int p1, p2;
+
+				p1 = rand() % 10;
+				p2 = rand() % 10;
+
+				Square* s = new Square(p1, p2);
+
+				SetObject(l, s);
+
+				break;
+
+			}
+
+
+		}
+
+	}
+
+
 };
 int main() {
 
