@@ -321,7 +321,7 @@ int main() {
 		else {
 			storage.print(l);
 			storage.outpMax_size();
-			cout << "1 - добавить элемент" << endl << "2 - удалить" << endl << "3 - изменить" << endl << "4 - перейти к следующему" << endl << "5 - перейти к предыдущему" << endl << "6 - подобрать случайно" << endl << "7 - выход" << endl;
+			cout << "1 - добавить элемент" << endl << "2 - следующий элемент" << endl << "3 - предыдущий" << endl << "4 - удалить" << endl << "5 - изменить" << endl << "6 - подобрать случайно" << endl << "7 - выход" << endl;
 		}
 		int x;
 		cin >> x;
@@ -333,22 +333,22 @@ int main() {
 				break;
 			}
 			case 2: {
-				storage.remove(l);
-				l--;
-				break;
-			}
-			case 3: {
-				storage.Cin(l);
-				break;
-			}
-			case 4: {
 				if (l + 1 < storage.getCount())
 					l++;
 				break;
 			}
-			case 5: {
+			case 3: {
 				if (l > 0)
 					l--;
+				break;
+			}
+			case 4: {
+				storage.remove(l);
+				l--;
+				break;
+			}
+			case 5: {
+				storage.Cin(l);
 				break;
 			}
 			case 6: {
