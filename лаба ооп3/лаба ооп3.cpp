@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <Windows.h>
 #include <conio.h>
 #include <string>
 using namespace std;
@@ -7,6 +8,7 @@ class Shape {
 public:
     int color;
     Shape() {
+		color = 0;
     }
 	virtual void show_parametri() = 0;
 	virtual string formula() = 0;
@@ -17,22 +19,24 @@ public:
 
 class Square : public Shape {
 private:
-	int p1, p2, p3;
+	int p1, p2, p3, p4;
 public: 
 	Square() {
 		color = 0;
 		p1 = 0;
 		p2 = 0;
 		p3 = 0;
+		p4 = 0;
 		cout << "Square()" << endl;
 	}
 
-	Square(int x, int y, int z) {
+	Square(int x, int y, int z, int t) {
 		this->color = color;
 		this->p1 = x;
 		this->p2 = y;
 		this->p3 = z;
-		cout << "Square(int x, int y, int z)" << endl;
+		this->p4 = t;
+		cout << "Square(int x, int y, int z, int t)" << endl;
 	}
 
 	Square(const Square& p) {
@@ -40,6 +44,7 @@ public:
 		p1 = p.p1;
 		p2 = p.p2;
 		p3 = p.p3;
+		p4 = p.p4;
 		cout << "Square(const Square& p)" << endl;
 	}
 
@@ -54,6 +59,9 @@ public:
 	virtual int sum_angle() {
 		return 360;
 	}
+	void Color() {
+		color = 13;
+	}
 
 	~Square() {
 		cout << " Квадрат удален " << endl;
@@ -63,22 +71,24 @@ public:
 
 class Triangle : public Shape {
 private:
-	int p1, p2, p3;
+	int p1, p2, p3, p4;
 public:
 	Triangle() {
 		color = 0;
 		p1 = 0;
 		p2 = 0;
 		p3 = 0;
+		p4 = 0;
 		cout << "Triangle()" << endl;
 	}
 
-	Triangle(int x, int y, int z) {
+	Triangle(int x, int y, int z, int t) {
 		this->color = color;
 		this->p1 = x;
 		this->p2 = y;
 		this->p3 = z;
-		cout << "Triangle(int x, int y, int z)" << endl;
+		this->p4 = t;
+		cout << "Triangle(int x, int y, int z, int t)" << endl;
 	}
 
 	Triangle(const Triangle& p) {
@@ -86,6 +96,7 @@ public:
 		p1 = p.p1;
 		p2 = p.p2;
 		p3 = p.p3;
+		p4 = p.p4;
 		cout << "Triangle(const Triangle& p)" << endl;
 	}
 
@@ -98,6 +109,9 @@ public:
 	}
 	virtual int sum_angle() {
 		return 180;
+	}
+	void Color() {
+		color = 15;
 	}
 	~Triangle() {
 		cout << " Треугольник удален " << endl;
@@ -128,7 +142,10 @@ private:
 			objects[i] = temp[i];
 		}
 	}
-
+	void SetColor(int text, int bg) {
+		HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+		SetConsoleTextAttribute(hStdOut, (WORD)((bg << 4) | text));
+	}
 public:
 	MyStorage() {
 		a = 0;
@@ -203,6 +220,7 @@ public:
 		switch (x) {
 			case 1: {
 				Triangle* t = new Triangle;
+				t->Color();
 				t->show_parametri();
 				t->formula();
 				t->sum_angle();
@@ -212,6 +230,7 @@ public:
 
 			case 2: {
 				Square* s = new Square;
+				s->Color();
 				s->show_parametri();
 				s->formula();
 				s->sum_angle();
@@ -222,24 +241,26 @@ public:
 	}
 
 	void Rand(int l) {
-		int x = 1 + rand() % 2;
+		int x = 1 + rand() % 4;
 		switch (x) {
 			case 1: {
-				int p1, p2, p3;
+				int p1, p2, p3, p4;
 				p1 = 1 + rand() % 2;
 				p2 = 1 + rand() % 2;
 				p3 = 1 + rand() % 2;
-				Triangle* t = new Triangle(p1, p2, p3);
+				p4 = 1 + rand() % 2;
+				Triangle* t = new Triangle(p1, p2, p3, p4);
 				SetObject(l, t);
 				break;
 			}
 
 			case 2: {
-				int p1, p2, p3;
+				int p1, p2, p3, p4;
 				p1 = 1 + rand() % 2;
 				p2 = 1 + rand() % 2;
 				p3 = 1 + rand() % 2;
-				Square* s = new Square(p1, p2, p3);
+				p4 = 1 + rand() % 2;
+				Square* s = new Square(p1, p2, p3, p4);
 				SetObject(l, s);
 				break;
 			}
