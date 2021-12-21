@@ -160,6 +160,16 @@ public:
 
 			GetObject(l).sum_angle();
 
+			for (int i = l + 1; i < a; i++) {
+
+				GetObject(i).show_parametri();
+
+				GetObject(i).formula();
+
+				GetObject(i).sum_angle();
+
+			}
+
 
 		}
 
