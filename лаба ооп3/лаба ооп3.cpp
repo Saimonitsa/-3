@@ -169,13 +169,37 @@ public:
 				GetObject(i).sum_angle();
 
 			}
-
-
 		}
 
 	}
+	void Cin(int l) {
 
+		int x;
+		cout << "1 - Shape" << endl << "2 - Square" << endl << "3 - Triangle" << endl << "4 - Square" << endl;
+		cin >> x;
+		switch (x) {
+			case 1: {
 
+				Triangle* t = new Triangle;
+				t->show_parametri();
+				t->formula();
+				t->sum_angle();
+				SetObject(l, t);
+
+				break;
+			}
+			case 2: {
+
+				Square* s = new Square;
+				s->show_parametri();
+				s->formula();
+				s->sum_angle();
+				SetObject(l, s);
+
+				break;
+			}
+		}
+	}
 };
 int main() {
 
