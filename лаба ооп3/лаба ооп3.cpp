@@ -3,8 +3,9 @@
 #include <string>
 using namespace std;
 
-class Shape {
+class Shape {	
 public:
+    int color;
     Shape() {
     }
 	virtual void show_parametri() = 0;
@@ -13,11 +14,13 @@ public:
 	~Shape() {
 	}
 };
+
 class Square : public Shape {
 private:
 	int p1, p2, p3;
 public: 
 	Square() {
+		color = 0;
 		p1 = 0;
 		p2 = 0;
 		p3 = 0;
@@ -25,13 +28,15 @@ public:
 	}
 
 	Square(int x, int y, int z) {
+		this->color = color;
 		this->p1 = x;
 		this->p2 = y;
 		this->p3 = z;
-		cout << "Square(int x, int y)" << endl;
+		cout << "Square(int x, int y, int z)" << endl;
 	}
 
 	Square(const Square& p) {
+		color = p.color;
 		p1 = p.p1;
 		p2 = p.p2;
 		p3 = p.p3;
@@ -61,6 +66,7 @@ private:
 	int p1, p2, p3;
 public:
 	Triangle() {
+		color = 0;
 		p1 = 0;
 		p2 = 0;
 		p3 = 0;
@@ -68,13 +74,15 @@ public:
 	}
 
 	Triangle(int x, int y, int z) {
+		this->color = color;
 		this->p1 = x;
 		this->p2 = y;
 		this->p3 = z;
-		cout << "Triangle(int x, int y)" << endl;
+		cout << "Triangle(int x, int y, int z)" << endl;
 	}
 
 	Triangle(const Triangle& p) {
+		color = p.color;
 		p1 = p.p1;
 		p2 = p.p2;
 		p3 = p.p3;
