@@ -145,7 +145,7 @@ private:
 			objects[i] = temp[i];
 		}
 	}
-	void SetColor(int text, int bg) {
+	void Color(int text, int bg) {
 		HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
 		SetConsoleTextAttribute(hStdOut, (WORD)((bg << 4) | text));
 	}
@@ -202,10 +202,11 @@ public:
 				GetObject(i).formula();
 				GetObject(i).sum_angle();
 			}
-
+			Color(13, 0);
 			GetObject(l).show_parametri();
 			GetObject(l).formula();
 			GetObject(l).sum_angle();
+			Color(15, 0);
 
 			for (int i = l + 1; i < a; i++) {
 				GetObject(i).show_parametri();
