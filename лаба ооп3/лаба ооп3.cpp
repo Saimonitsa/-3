@@ -325,7 +325,23 @@ int main() {
 		else {
 
 		}
-	}
-
-	
+		int x;
+		cin >> x;
+		switch (x) {
+			case 1: {
+				l++;
+				storage.move(l);
+				storage.Cin(l);
+				break;
+			}
+			case 2: {
+				storage.random();
+				break;
+			}
+			case 3: {
+				flag = false;
+				break;
+			}
+		}
+	}	
 }
