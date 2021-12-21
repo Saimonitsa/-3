@@ -276,11 +276,73 @@ public:
 
 			}
 
-
 		}
 
 	}
+	void remove(int i) {
 
+		if (a > 0) {
+			a--;
+			for (i; i < a; i++) {
+				objects[i] = objects[i + 1];
+			}
+		}
+	}
+
+	void random() {
+
+		MyStorage* storage = new MyStorage;
+		int l = -1;
+		for (int i = 0; i < 100; i++) {
+			system("cls");
+			int x;
+			cout << "Размер хранилища: " << storage->getCount() << endl;
+			if (storage->getCount() == 0) {
+				x = 1;
+				l = -1;
+			}
+
+			else {
+				storage->print(l);
+				storage->outpMax_size();
+				x = 1 + rand() % 5;
+			}
+
+			switch (x) {
+				case 1: {
+					l++;
+					storage->move(l);
+					storage->Rand(l);
+					break;
+				}
+
+				case 2: {
+					storage->remove(l);
+					l--;
+					break;
+				}
+
+				case 3: {
+					storage->Rand(l);
+					break;
+
+				}
+
+				case 4: {
+					if (l + 1 < storage->getCount())
+						l++;
+					break;
+				}
+
+				case 5: {
+					if (l > 0)
+						l--;
+					break;
+				}
+			}
+		}
+		delete storage;
+	}
 
 };
 int main() {
